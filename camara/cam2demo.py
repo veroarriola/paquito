@@ -1,3 +1,9 @@
+# sudo apt install libcap-dev
+# python -m venv --system-site-packages camara
+# source camara/bin/activate
+# pip install --upgrade pip
+# pip install picamera2 libcamera
+
 from picamera2 import Picamera2
 from libcamera import controls
 
