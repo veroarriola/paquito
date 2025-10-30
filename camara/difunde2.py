@@ -72,6 +72,11 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
                     self.end_headers()
                     self.wfile.write(frame)
                     self.wfile.write(b'\r\n')
+            except BrokenPipeError as e:
+                logging.info('Broken pipe client $s: %s closed conection.',
+                             self.client_address, str(e))
+            except ConnectionResetError as e:
+                logging.info('Connection reset %s:', self.client_address, str(e))
             except Exception as e:
                 logging.warning(
                     'Removed streaming client %s: %s',
@@ -87,22 +92,26 @@ class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
 
     def __init__(self, server_address, bind_and_activate):
         super().__init__(server_address, bind_and_activate)
-        print("Dirección: ", server_address)
+        print("Dirección: ", self.server_address)
 
 
-picam2 = Picamera2()
-conf = picam2.create_video_configuration(main={"size": (1280, 720)})
-#conf = picam2.create_video_configuration(main={"size": (1296//2, 972//2)})
+if __name__ == '__main__':
+    picam2 = Picamera2()
+    conf = picam2.create_video_configuration(main={"size": (1280, 720)})
+    #conf = picam2.create_video_configuration(main={"size": (1296//2, 972//2)})
 
-picam2.configure(conf)
-output = StreamingOutput()
-picam2.start_recording(JpegEncoder(), FileOutput(output))
-picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous, "AfSpeed": controls.AfSpeedEnum.Fast})
+    picam2.configure(conf)
+    output = StreamingOutput()
+    picam2.start_recording(JpegEncoder(), FileOutput(output))
+    picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous, "AfSpeed": controls.AfSpeedEnum.Fast})
 
-try:
-    address = ('', 8000)
-    server = StreamingServer(address, StreamingHandler)
-    server.serve_forever()
-finally:
-    picam2.stop_recording()
+    try:
+        address = ('', 8000)
+        server = StreamingServer(address, StreamingHandler)
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("...Keyboard Interrupt.")
+    finally:
+        picam2.stop_recording()
+        print("Ended.")
 
