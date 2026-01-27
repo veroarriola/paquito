@@ -25,11 +25,11 @@ const int speedPinR = 9;            // Front Wheel PWM pin connect Model-Y M_B E
 const int RightMotorDirPin1 = 26;   // Front Right Motor direction pin 1 to Model-Y M_B IN1 (K1)
 const int RightMotorDirPin2 = 27;   // Front Right Motor direction pin 2 to Model-Y M_B IN2 (K1)
 const int RightMotorS1PinRA = 30;   // Front Right Motor encoder Signal 1 Orange
-const int RightMotorS2PinRA = 31;   // Front Right Motor encoder Signal 2 Green
+const int RightMotorS2PinRA = 32;   // Front Right Motor encoder Signal 2 Green
 
 const int LeftMotorDirPin1 = 28;   // Front Left Motor direction pin 1 to Model-Y M_B IN3  (K3)
 const int LeftMotorDirPin2 = 29;   // Front Left Motor direction pin 2 to Model-Y M_B IN4  (K3)
-const int LeftMotorS1PinLA = 32;    // Front Left Motor encoder Signal 1 Orange
+const int LeftMotorS1PinLA = 31;    // Front Left Motor encoder Signal 1 Orange
 const int LeftMotorS2PinLA = 33;    // Front Left Motor encoder Signal 2 Green
 const int speedPinL = 10;           // Front Wheel PWM pin connect Model-Y M_B ENB
 
@@ -37,11 +37,11 @@ const int speedPinRB = 11;          // Rear Wheel PWM pin connect Left Model-Y M
 const int RightMotorDirPin1B = 22;  // Rear Right Motor direction pin 1 to Model-Y M_A IN1 (K1)
 const int RightMotorDirPin2B = 23;  // Rear Right Motor direction pin 2 to Model-Y M_A IN2 (K1) 
 const int RightMotorS1PinRB = 34;   // Rear Right Motor encoder Signal 1 Orange
-const int RightMotorS2PinRB = 35;   // Rear Right Motor encoder Signal 2 Green
+const int RightMotorS2PinRB = 36;   // Rear Right Motor encoder Signal 2 Green
 
 const int LeftMotorDirPin1B = 24;  // Rear Left Motor direction pin 1 to Model-Y M_A IN3  (K3)
 const int LeftMotorDirPin2B = 25;  // Rear Left Motor direction pin 2 to Model-Y M_A IN4  (K3)
-const int LeftMotorS1PinLB = 36;    // Rear Left Motor encoder Signal 1 Orange
+const int LeftMotorS1PinLB = 35;    // Rear Left Motor encoder Signal 1 Orange
 const int LeftMotorS2PinLB = 37;    // Rear Left Motor encoder Signal 2 Green
 const int speedPinLB = 12;          // Rear Wheel PWM pin connect Model-Y M_A ENB
 
