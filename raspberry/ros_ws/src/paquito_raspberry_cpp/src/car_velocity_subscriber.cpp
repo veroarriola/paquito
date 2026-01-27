@@ -12,7 +12,7 @@ using namespace std::chrono_literals;
 class CarVelocitySubscriber : public rclcpp::Node
 {
 public:
-    CarVelocitySubscriber(rclcpp::NodeOptions options=rclcpp::NodeOptions()):Node("wheel_velocity_publisher", options)
+    CarVelocitySubscriber(rclcpp::NodeOptions options=rclcpp::NodeOptions()):Node("car_velocity_subscriber", options)
     {
        // Se suscribe a comandos para asignar la velocidad al robot (suscripción a cmd_vel)
         _vel_subscription = this->create_subscription<geometry_msgs::msg::Twist>(
@@ -22,7 +22,7 @@ public:
         _wheel_vel_publisher = this->create_publisher<std_msgs::msg::Float64MultiArray>(
             "wheel_velocities", 10);
 
-        RCLCPP_INFO(this->get_logger(), "Wheel velocity publisher started");
+        RCLCPP_INFO(this->get_logger(), "Car velocity subscriber started");
         _timer = this->create_wall_timer(33ms, std::bind(&CarVelocitySubscriber::publish, this));
     }
 

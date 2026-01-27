@@ -100,13 +100,8 @@ enum Command {
   CLOCKWISE =        0b01011010, //clockwise
   COUNTCLOCKWISE =   0b10100101, //countclockwise
   SPEAK =            0b00010001,
-  SONAR_AROUND =     0b00100010, //spin sonar around
-  PITCH_UP =         0b01000100, //look up
-  PITCH_DOWN =       0b10001000, //look down
-  ROLL_RIGHT =       0b01100110, //ladeo
-  ROLL_LEFT =        0b10011001,
-  YAW_RIGHT =        0b01110111, //turn right
-  YAW_LEFT =         0b11101110,
+  MOVE_CAMERA =      0b00100010, //spin camera servo (1 param)
+  SET_WHEELS_SPEED = 0b11111111, //manually set speeds per wheel (4 params)
 };
 
 void toCharArray(Command c, const char *commandName, int len) {
@@ -154,26 +149,11 @@ void toCharArray(Command c, const char *commandName, int len) {
     case SPEAK:
       commandString = "speak";
       break;
-    case SONAR_AROUND:
-      commandString = "sonar_around";
+    case MOVE_CAMERA:
+      commandString = "move_camera";
       break;
-    case PITCH_UP:
-      commandString = "pitch_up";
-      break;
-    case PITCH_DOWN:
-      commandString = "pitch_down";
-      break;
-    case ROLL_RIGHT:
-      commandString = "roll_right";
-      break;
-    case ROLL_LEFT:
-      commandString = "roll_left";
-      break;
-    case YAW_RIGHT:
-      commandString = "yaw_right";
-      break;
-    case YAW_LEFT:
-      commandString = "yaw_left";
+    case SET_WHEELS_SPEED:
+      commandString = "set_wheels_speed";
       break; 
     default:
       commandString = "unknown";
@@ -283,10 +263,12 @@ void execute(Command c, unsigned char args[]) {
       Serial.println("--> Dí algo " + args[0]);
       speak = true;
       break;
-    case SONAR_AROUND:
-      Serial.println("--> Sonar alrededor [sin uso cambiar por cámara] " + args[0]);
+    case MOVE_CAMERA:
+      Serial.println("--> Mover la cámara " + args[0]);
       //sonar_around = true;
       break;
+    case SET_WHEELS_SPEED:
+      Serial.println("--> Asigna velocidades a las llanatas " + args[0]);
     default:
       Serial.print("--> Comando desconocido");
       Serial.println(c);
