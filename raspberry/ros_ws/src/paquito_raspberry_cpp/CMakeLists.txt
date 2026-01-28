@@ -12,16 +12,16 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
-# 2. DEFINICIÓN DEL EJECUTABLE PWMConverter
+# 2. DEFINICIÓN DEL EJECUTABLE command_executor
 # Asegúrate de que tu archivo esté en la carpeta 'src'
-add_executable(command_executor src/PWMConverter.cpp)
+add_executable(command_executor src/command_executor.cpp)
 
 #publisher
 add_executable(car_velocity_subscriber src/car_velocity_subscriber.cpp)
-target_include_directories(car_subscriber PUBLIC
+target_include_directories(car_velocity_subscriber PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
-ament_target_dependencies(car_subscriber rclcpp geometry_msgs std_msgs)
+ament_target_dependencies(car_velocity_subscriber rclcpp geometry_msgs std_msgs)
 
 
 target_include_directories(command_executor PUBLIC

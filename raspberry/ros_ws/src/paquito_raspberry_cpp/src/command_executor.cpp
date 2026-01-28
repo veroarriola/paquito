@@ -1,6 +1,7 @@
 // Autor: MAXO237
 // Autor: blackzafiro
 #include <rclcpp/rclcpp.hpp>
+#include "std_msgs/msg/string.hpp"
 #include <std_msgs/msg/float64_multi_array.hpp>
 #include <cmath>
 #include <algorithm>
@@ -11,6 +12,7 @@
 #include <sys/ioctl.h>    // Para ioctl()
 #include <linux/i2c-dev.h>// Para I2C_SLAVE
 #include <cstdint>        // Para tipos int16_t, uint8_t
+#include <string>         // Para std::string
 
 // Definición de constantes
 const double MAX_RAD_PER_SEC = 3.1416; 
@@ -66,7 +68,7 @@ public:
         // 2. Suscriptor a comandos de cadena
         _command_subscription = this->create_subscription<std_msgs::msg::String>(
             "command_for_paquito", 10,
-            std::bind(&CommandExecutor::string_command_callback, this, _1));
+            std::bind(&CommandExecutor::string_command_callback, this, std::placeholders::_1));
         
         RCLCPP_INFO(this->get_logger(), "PWM Converter I2C iniciado correctamente.");
     }
@@ -80,17 +82,20 @@ public:
 
 private:
     // Callback para un comando simple por cadena
-    void topic_callback(const std_msgs::msg::String & msg) const
+    void string_command_callback(const std_msgs::msg::String & msg) const
     {
-        string command = msg.data;
+        std::string command = msg.data;
         RCLCPP_INFO(this->get_logger(), "Comando por cadena recibido: '%s'", command.c_str());
 
+        // Comandos de 1 byte
+        uint8_t buffer[1];
         if (command == "stop") {
-            write(file_i2c, STOP, 1);
+            buffer[0] = STOP;
         }
         else if (command == "speak") {
-            write(file_i2c, SPEAK, 1);
+            buffer[0] = SPEAK;
         }
+        write(file_i2c, buffer, 1);
     }
 
     // Función de envío corregida (9 bytes)
