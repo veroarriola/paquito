@@ -36,11 +36,17 @@ ament_target_dependencies(command_executor
   std_msgs
 )
 
-# 3. INSTALACIÓN
+# 3. INSTALACIÓN DE EJECUTABLES
 install(TARGETS
   command_executor
   car_velocity_subscriber
   DESTINATION lib/${PROJECT_NAME}
+)
+
+# 4. INSTALACIÓN DE RECURSOS
+install(DIRECTORY
+  launch    # launch files
+  DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)

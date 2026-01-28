@@ -25,6 +25,19 @@ source ~/ros_ws/install/local_setup.bash
 export ROS_DOMAIN_ID=1
 ```
 
+Si se tiene ```ufw``` activado, permitir el tráfico desde la Raspberry:
+
+```
+sudo ufw allow from [IP]
+```
+
+Después se puede borrar listando las reglas numeradas y borrando el número correspondiente
+
+```
+sudo ufw status numbered
+sudo ufw delete [number]
+```
+
 Para ejecutar todos los nodos en la Raspberry:
 
 ```
