@@ -269,6 +269,8 @@ void execute(Command c, unsigned char args[]) {
       break;
     case SET_WHEELS_SPEED:
       Serial.println("--> Asigna velocidades a las llanatas " + args[0]);
+      // do stuff here
+      break;
     default:
       Serial.print("--> Comando desconocido");
       Serial.println(c);
@@ -372,8 +374,15 @@ void loop() {
 
 // Función que se ejecuta cuando el maestro va a enviar información.
 void receiveEvent(int howMany) {
-  if (howMany >= 8) {
+  if (howMany == 9) {
     // Velocidad llanta por llanta
+    // Verificamos comando
+    unsigned char commandByte = Wire.read();
+    if (commandByte != SET_WHEELS_SPEED) {
+      Serial.print("No es el código del comando para asignar velocidad.\n");
+      return;
+    }
+
     // Leemos los 8 bytes directamente en nuestra unión
     for(int i = 0; i < 8; i++) {
       rxData.bytes[i] = Wire.read();
@@ -389,7 +398,7 @@ void receiveEvent(int howMany) {
     Serial.print(buf);
 
     if (howMany < 2) {
-      Serial.println("~~~\n");
+      Serial.println("~~~ Menos de 2 bytes.  Descartando basura.\n");
       // Limpiar buffer si llega basura
       while(Wire.available()) Wire.read();
       return;

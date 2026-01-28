@@ -14,32 +14,32 @@ find_package(geometry_msgs REQUIRED)
 
 # 2. DEFINICIÓN DEL EJECUTABLE PWMConverter
 # Asegúrate de que tu archivo esté en la carpeta 'src'
-add_executable(pwm_converter src/PWMConverter.cpp)
+add_executable(command_executor src/PWMConverter.cpp)
 
 #publisher
-add_executable(car_subscriber src/car_velocity_subscriber.cpp)
+add_executable(car_velocity_subscriber src/car_velocity_subscriber.cpp)
 target_include_directories(car_subscriber PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 ament_target_dependencies(car_subscriber rclcpp geometry_msgs std_msgs)
 
 
-target_include_directories(pwm_converter PUBLIC
+target_include_directories(command_executor PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 
-target_compile_features(pwm_converter PUBLIC c_std_99 cxx_std_17)
+target_compile_features(command_executor PUBLIC c_std_99 cxx_std_17)
 
 # Dependencias del nodo
-ament_target_dependencies(pwm_converter 
+ament_target_dependencies(command_executor 
   rclcpp 
   std_msgs
 )
 
 # 3. INSTALACIÓN
 install(TARGETS
-  pwm_converter
-  car_subscriber
+  command_executor
+  car_velocity_subscriber
   DESTINATION lib/${PROJECT_NAME}
 )
 
