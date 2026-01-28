@@ -105,6 +105,11 @@ private:
             RCLCPP_INFO(this->get_logger(), " speak: '%d'", SPEAK);
             buffer[0] = SPEAK;
         }
+        else {
+            RCLCPP_INFO(this->get_logger(), " unknown");
+            return;
+        }
+
         write(file_i2c, buffer, 1);
     }
 
