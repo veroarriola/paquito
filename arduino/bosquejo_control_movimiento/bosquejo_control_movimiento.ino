@@ -65,9 +65,21 @@ const Encoder ENCODERS[] = {
 
 Car paquito(WHEELS, ENCODERS);
 
+
+// Frenar a paquito si no recibe nuevos comandos
 const int16_t MAX_PWM = 255;
 const int MAX_SPEED = 150;
 const int MIN_SPEED = 50;
+
+const float MAX_DECAY = 1.0;
+const float SPEED_DECAY_RATE = 0.1;
+float speed_decay = MAX_DECAY;
+
+// Reduce la rapidez linealmente.
+float decrease_speed_factor() {
+  float temp = speed_decay - SPEED_DECAY_RATE;
+  speed_decay = max(temp, 0);
+}
 
 // Estado de movimiento
 int speed = 70;
@@ -354,6 +366,9 @@ void loop() {
 
     newData = false;
   }
+  else {
+    decrease_speed_factor();
+  }
 
 
   // Enviar información del codificador
@@ -382,6 +397,7 @@ void receiveEvent(int howMany) {
       Serial.print("No es el código del comando para asignar velocidad.\n");
       return;
     }
+    speed_decay = MAX_DECAY;
 
     // Leemos los 8 bytes directamente en nuestra unión
     for(int i = 0; i < 8; i++) {
@@ -429,6 +445,7 @@ void receiveEvent(int howMany) {
       args[ind++] = c;
     }
 
+    speed_decay = MAX_DECAY;
     execute(commandByte, args);
     Serial.println("~~~...\n");
     
