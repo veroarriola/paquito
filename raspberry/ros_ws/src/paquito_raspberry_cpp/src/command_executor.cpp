@@ -90,9 +90,19 @@ private:
         // Comandos de 1 byte
         uint8_t buffer[1];
         if (command == "stop") {
+            RCLCPP_INFO(this->get_logger(), " stop: '%d'", STOP);
             buffer[0] = STOP;
         }
+        else if (command == "accel") {
+            RCLCPP_INFO(this->get_logger(), " accel: '%d'", ACCELERATE);
+            buffer[0] = ACCELERATE;
+        }
+        else if (command == "forwa") {
+            RCLCPP_INFO(this->get_logger(), " forwa: '%d'", FORWARD);
+            buffer[0] = FORWARD;
+        }
         else if (command == "speak") {
+            RCLCPP_INFO(this->get_logger(), " speak: '%d'", SPEAK);
             buffer[0] = SPEAK;
         }
         write(file_i2c, buffer, 1);

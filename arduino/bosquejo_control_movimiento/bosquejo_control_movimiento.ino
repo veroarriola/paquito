@@ -393,17 +393,21 @@ void receiveEvent(int howMany) {
     sprintf(buf, "\n...~~~ Received %d:\n", howMany);
     Serial.print(buf);
 
+    /*
     char ini = Wire.read();
     sprintf(buf, "First byte: %d\n", ini);
     Serial.print(buf);
-
+    */
+    /*
     if (howMany < 2) {
       Serial.println("~~~ Menos de 2 bytes.  Descartando basura.\n");
       // Limpiar buffer si llega basura
       while(Wire.available()) Wire.read();
       return;
     }
+    */
     unsigned char commandByte = Wire.read();
+    
 
     const int commandBufLength = 15;
     char commandName[commandBufLength];
@@ -414,7 +418,7 @@ void receiveEvent(int howMany) {
     
 
     Serial.println("Arguments:");
-    unsigned char args[howMany - 2];
+    unsigned char args[howMany - 1];
     int ind = 0;
     int ava;
     while (ava = Wire.available()) {

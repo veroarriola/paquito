@@ -3,7 +3,16 @@
 Para comunicar a la Raspberry con Arduino por medio del protocolo I2C, el usuario de la Raspberry debe estar en el grupo con los permisos correspondientes:
 
 ```
+sudo raspi-config
+# Navegar a interfacing options y activar i2c
+sudo usermod -a -G i2c <usuario>
+sudo reboot
+```
 
+Para detectar dispositivos I2C conectados:
+
+```
+i2cdetect -y 1
 ```
 
 ## Para ejecutar
