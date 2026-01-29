@@ -16,6 +16,7 @@ public:
 
   void moveForward(unsigned int speed);
   void moveBackward(unsigned int speed);
+  void setSignedSpeed(int16_t speed);
 
   void stop();
 

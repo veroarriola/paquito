@@ -39,25 +39,50 @@ class JoyControl(Node):
         axes = msg.axes
         buttons = msg.buttons
 
-        if 1.0 - axes[7] < JoyControl.EPSILON:
-            # Flecha arriba
-            self.get_logger().info(f"FL [todo]")
+        
+
+        # if 1.0 - axes[7] < JoyControl.EPSILON:
+        if axes[7] == 1.0:
+            # Flecha arriba: FL
+            msg = String()
+            self.get_logger().info(f"FL")
+            msg.data = 'FL'
+            self.string_command_publisher.publish(msg)
+        if axes[6] == -1.0:
+            # Flecha a la derecha: FR
+            msg = String()
+            self.get_logger().info(f"FR")
+            msg.data = 'FR'
+            self.string_command_publisher.publish(msg)
+        if axes[7] == -1.0:
+            # Flecha arriba: RR
+            msg = String()
+            self.get_logger().info(f"RR")
+            msg.data = 'RR'
+            self.string_command_publisher.publish(msg)
+        if axes[6] == 1.0:
+            # Flecha arriba: RL
+            msg = String()
+            self.get_logger().info(f"RL")
+            msg.data = 'RL'
+            self.string_command_publisher.publish(msg)
+
         if buttons[2] == 1:
             # Triángulo
             msg = String()
             self.get_logger().info(f"speak")
             msg.data = 'speak'
             self.string_command_publisher.publish(msg)
-        
-        ax_y = axes[0]
-        ax_x = axes[1]
-        ax_wz = axes[3]
+        else:
+            ax_y = axes[0]
+            ax_x = axes[1]
+            ax_wz = axes[3]
 
-        vel_msg = Twist()
-        vel_msg.linear.x = ax_x * JoyControl.MAX_LINE_SPEED
-        vel_msg.linear.y = ax_y * JoyControl.MAX_LINE_SPEED
-        vel_msg.angular.z = ax_wz * JoyControl.MAX_ANGLE_SPEED
-        self.vel_command_publisher.publish(vel_msg)
+            vel_msg = Twist()
+            vel_msg.linear.x = ax_x * JoyControl.MAX_LINE_SPEED
+            vel_msg.linear.y = ax_y * JoyControl.MAX_LINE_SPEED
+            vel_msg.angular.z = ax_wz * JoyControl.MAX_ANGLE_SPEED
+            self.vel_command_publisher.publish(vel_msg)
 
 
 

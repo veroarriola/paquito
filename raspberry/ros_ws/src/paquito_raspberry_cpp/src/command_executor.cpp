@@ -17,6 +17,7 @@
 // Definición de constantes
 const double MAX_RAD_PER_SEC = 3.1416; 
 const int MAX_PWM_VALUE = 255;
+const int16_t ONE_WHEEL_SPEED = 100;
 
 // Comandos básicos
 
@@ -82,34 +83,58 @@ public:
 
 private:
     // Callback para un comando simple por cadena
-    void string_command_callback(const std_msgs::msg::String & msg) const
+    void string_command_callback(const std_msgs::msg::String & msg)
     {
         std::string command = msg.data;
         RCLCPP_INFO(this->get_logger(), "Comando por cadena recibido: '%s'", command.c_str());
 
         // Comandos de 1 byte
-        uint8_t buffer[1];
+        
         if (command == "stop") {
             RCLCPP_INFO(this->get_logger(), " stop: '%d'", STOP);
-            buffer[0] = STOP;
+            envia_1_byte(STOP);
         }
         else if (command == "accel") {
             RCLCPP_INFO(this->get_logger(), " accel: '%d'", ACCELERATE);
-            buffer[0] = ACCELERATE;
+            envia_1_byte(ACCELERATE);
         }
         else if (command == "forwa") {
             RCLCPP_INFO(this->get_logger(), " forwa: '%d'", FORWARD);
-            buffer[0] = FORWARD;
+            envia_1_byte(FORWARD);
         }
         else if (command == "speak") {
             RCLCPP_INFO(this->get_logger(), " speak: '%d'", SPEAK);
-            buffer[0] = SPEAK;
+            envia_1_byte(SPEAK);
+        }
+        else if (command == "FL") {
+            RCLCPP_INFO(this->get_logger(), " FL: '%d'", SET_WHEELS_SPEED);
+            enviar_4_pwm(ONE_WHEEL_SPEED, 0, 0, 0);
+        }
+        else if (command == "FR") {
+            RCLCPP_INFO(this->get_logger(), " FR: '%d'", SET_WHEELS_SPEED);
+            enviar_4_pwm(0, 0, ONE_WHEEL_SPEED, 0);
+        }
+        else if (command == "RR") {
+            RCLCPP_INFO(this->get_logger(), " RR: '%d'", SET_WHEELS_SPEED);
+            enviar_4_pwm(0, 0, 0, ONE_WHEEL_SPEED);
+        }
+        else if (command == "RL") {
+            RCLCPP_INFO(this->get_logger(), " RL: '%d'", SET_WHEELS_SPEED);
+            enviar_4_pwm(0, ONE_WHEEL_SPEED, 0, 0);
         }
         else {
             RCLCPP_INFO(this->get_logger(), " unknown");
             return;
         }
 
+        
+    }
+
+    // Envía un comando de 1 byte
+    void envia_1_byte(Command c)
+    {
+        uint8_t buffer[1];
+        buffer[0] = c;
         write(file_i2c, buffer, 1);
     }
 
@@ -119,7 +144,7 @@ private:
         if (file_i2c < 0) return; // Seguridad si no se abrió el bus
 
         uint8_t buffer[9];
-        buffer[0] = 0xFF;   // Identificador del comando para asignar pwms
+        buffer[0] = SET_WHEELS_SPEED;   // Identificador del comando para asignar pwms
 
         // Descomposición manual en bytes (Little Endian)
         // Motor 1 (FL)

@@ -76,7 +76,8 @@ const float SPEED_DECAY_RATE = 0.1;
 float speed_decay = MAX_DECAY;
 
 // Reduce la rapidez linealmente.
-float decrease_speed_factor() {
+float decrease_speed_factor()
+{
   float temp = speed_decay - SPEED_DECAY_RATE;
   speed_decay = max(temp, 0);
 }
@@ -115,6 +116,9 @@ enum Command {
   MOVE_CAMERA =      0b00100010, //spin camera servo (1 param)
   SET_WHEELS_SPEED = 0b11111111, //manually set speeds per wheel (4 params)
 };
+
+// Declara el prototipo manualmente aquí:
+void toCharArray(Command c, const char *commandName, int len);
 
 void toCharArray(Command c, const char *commandName, int len) {
   String commandString;
@@ -173,6 +177,8 @@ void toCharArray(Command c, const char *commandName, int len) {
   commandString.toCharArray(commandName, len);
 }
 
+
+void execute(Command c, unsigned char args[]);
 
 void execute(Command c, unsigned char args[]) {
   switch(c) {
@@ -357,10 +363,16 @@ void loop() {
     // Depura para verificar qué llega
     // Serial.print("FL: "); Serial.print(rxData.val.fl);
     // Serial.print(" FR: "); Serial.println(rxData.val.fr);
+    /*
     wheel_speeds[0] = rxData.val.fl;
     wheel_speeds[1] = rxData.val.rl;
     wheel_speeds[2] = rxData.val.fr;
     wheel_speeds[3] = rxData.val.rr;
+    */
+    wheel_speeds[FL] = rxData.val.fl;
+    wheel_speeds[BL] = rxData.val.rl;
+    wheel_speeds[FR] = rxData.val.fr;
+    wheel_speeds[BR] = rxData.val.rr;
     limitSpeed(wheel_speeds);
     paquito.setSignedSpeeds(wheel_speeds);
 

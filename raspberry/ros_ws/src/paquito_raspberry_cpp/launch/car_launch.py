@@ -9,7 +9,6 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package=package_name,
-            namespace='paquito',
             executable='command_executor',
             name='command_executor',
             output='screen',

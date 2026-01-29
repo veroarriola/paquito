@@ -33,6 +33,17 @@ void Wheel::moveBackward(unsigned int speed)
     analogWrite(SPEED_PIN, speed);
 }
 
+void Wheel::setSignedSpeed(int16_t speed)
+{
+    if (speed > 0) {
+        moveForward(constrain(speed, 0, 255));
+    } else if (speed < 0) {
+        moveBackward(constrain(-1 * speed, 0, 255));
+    } else {
+        stop();
+    }
+}
+
 void Wheel::stop()
 {
     //printStatus("S");
@@ -250,6 +261,19 @@ void Car::setSignedSpeeds(int16_t signedSpeeds[NUM_WHEELS])
             _wheels[i].stop();
         }
     }
+    // Esta función sigue un orden diferente para el orden de las llantas
+    /*
+    _wheels[FL].setSignedSpeed(signedSpeeds[1]);
+    _wheels[FR].setSignedSpeed(signedSpeeds[0]);
+    _wheels[BR].setSignedSpeed(signedSpeeds[3]);
+    _wheels[BL].setSignedSpeed(signedSpeeds[2]);
+    */
+    /*
+    _wheels[FL].setSignedSpeed(signedSpeeds[0]);
+    _wheels[BL].setSignedSpeed(signedSpeeds[1]);
+    _wheels[FR].setSignedSpeed(signedSpeeds[2]);
+    _wheels[BR].setSignedSpeed(signedSpeeds[3]);
+    */
 }
 
 double Car::count(WheelId id)
