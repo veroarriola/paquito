@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="215.89999mm"
+   height="279.39999mm"
+   viewBox="0 0 215.89999 279.39999"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="dispositivos.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="2"
+     inkscape:cx="360"
+     inkscape:cy="249.5"
+     inkscape:window-width="1920"
+     inkscape:window-height="1000"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid182"
+       originx="0"
+       originy="0"
+       units="mm"
+       spacingx="0.19999999"
+       spacingy="0.19999999" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#0066ff;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect292"
+       width="57.999992"
+       height="53.999996"
+       x="132"
+       y="18"
+       ry="0.52916795" />
+    <rect
+       style="fill:none;stroke:#ff0066;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect952"
+       width="88"
+       height="55.999996"
+       x="23.999998"
+       y="15.999999"
+       ry="0.52916795" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1110"
+       width="77.999992"
+       height="37.999996"
+       x="72"
+       y="81.999992"
+       ry="0.52916795" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:4.23333px;font-family:serif;-inkscape-font-specification:'serif Bold';fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="152"
+       y="23.999996"
+       id="text1228"><tspan
+         sodipodi:role="line"
+         id="tspan1226"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.4"
+         x="152"
+         y="23.999996">Arduino</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="43.999996"
+       y="22"
+       id="text1286"><tspan
+         sodipodi:role="line"
+         id="tspan1284"
+         style="stroke-width:0.4"
+         x="43.999996"
+         y="22">Raspberry</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="101.99999"
+       y="88"
+       id="text1290"><tspan
+         sodipodi:role="line"
+         id="tspan1288"
+         style="stroke-width:0.4"
+         x="101.99999"
+         y="88">PC</tspan></text>
+    <rect
+       style="fill:none;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1358"
+       width="47.999992"
+       height="18.000002"
+       x="138"
+       y="27.999996"
+       ry="0.52916795" />
+    <rect
+       style="fill:none;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1360"
+       width="45.999992"
+       height="18.000004"
+       x="138"
+       y="49.999992"
+       ry="0.52916795" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:none;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="140"
+       y="34"
+       id="text1416"><tspan
+         sodipodi:role="line"
+         id="tspan1414"
+         style="stroke-width:0.4"
+         x="140"
+         y="34">I2C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:none;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="140.00002"
+       y="55.999992"
+       id="text1420"><tspan
+         sodipodi:role="line"
+         id="tspan1418"
+         style="stroke-width:0.4"
+         x="140.00002"
+         y="55.999992">Serial2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="140.00002"
+       y="61.999992"
+       id="text1494"><tspan
+         sodipodi:role="line"
+         id="tspan1492"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4"
+         x="140.00002"
+         y="61.999992">Publica codificadores</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="139.58937"
+       y="39.957661"
+       id="text3019"><tspan
+         sodipodi:role="line"
+         id="tspan3017"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4"
+         x="139.58937"
+         y="39.957661">Recibe comandos</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:none;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="29.999998"
+       y="34"
+       id="text3797"><tspan
+         sodipodi:role="line"
+         id="tspan3795"
+         style="stroke-width:0.4"
+         x="29.999998"
+         y="34">command_executor</tspan></text>
+    <rect
+       style="fill:none;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect3799"
+       width="78"
+       height="18.000004"
+       x="27.999998"
+       y="27.999994"
+       ry="0.52916795" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="29.589365"
+       y="39.957664"
+       id="text3853"><tspan
+         sodipodi:role="line"
+         id="tspan3851"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4"
+         x="29.589365"
+         y="39.957664">Envía comandos I2C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:none;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="29.999998"
+       y="55.999996"
+       id="text4612"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.4"
+         x="29.999998"
+         y="55.999996"
+         id="tspan4614">car_subscriber</tspan></text>
+    <rect
+       style="fill:none;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect4618"
+       width="78"
+       height="18.000004"
+       x="27.999998"
+       y="49.999992"
+       ry="0.52916795" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;stroke:#333333;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       x="29.589365"
+       y="61.957664"
+       id="text4622"><tspan
+         sodipodi:role="line"
+         id="tspan4620"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4"
+         x="29.589365"
+         y="61.957664">Escucha /cmd_vel y convierte a PWM</tspan></text>
+  </g>
+</svg>
