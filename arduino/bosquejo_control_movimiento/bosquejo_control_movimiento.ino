@@ -301,10 +301,10 @@ void execute(Command c, unsigned char args[]) {
 // Estructura para recibir los datos (4 enteros cortos = 8 bytes)
 union Packet {
   struct {
-    int16_t fl;
-    int16_t rl;
     int16_t fr;
     int16_t rr;
+    int16_t fl;
+    int16_t rl;
   } val;
   byte bytes[8];
 };
