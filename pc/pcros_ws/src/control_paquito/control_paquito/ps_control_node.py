@@ -93,7 +93,7 @@ def main(args=None):
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
-        node.get_logger().info("Deteniendo nodo...")
+        node.get_logger().info("Deteniendo nodo ps control...")
     finally:
         node.destroy_node()
         rclpy.shutdown()

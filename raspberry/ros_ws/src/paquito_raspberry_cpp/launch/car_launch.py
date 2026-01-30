@@ -21,7 +21,7 @@ def generate_launch_description():
         ),
         Node(
             package='rpy_camera', # Nombre que pusiste en setup.py
-            executable='camera_node',    # El nombre del entry_point
+            executable='camera_publisher_node',    # El nombre del entry_point
             name='pi_camera_streamer',
             output='screen',
             parameters=[{
