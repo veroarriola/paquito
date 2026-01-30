@@ -73,6 +73,12 @@ class JoyControl(Node):
             self.get_logger().info(f"speak")
             msg.data = 'speak'
             self.string_command_publisher.publish(msg)
+        if buttons[3] == 1:
+            # Cuadrado
+            msg = String()
+            self.get_logger().info(f"stop")
+            msg.data = 'stop'
+            self.string_command_publisher.publish(msg)
         else:
             ax_y = axes[0]
             ax_x = axes[1]
